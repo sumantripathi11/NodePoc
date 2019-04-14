@@ -9,7 +9,7 @@ const app = express();
 
 const { getHomePage } = require('./routes/index');
 const { addMemberPage, addMember, deleteMember, editMember, editMemberPage } = require('./routes/member');
-const port = 80;
+const port = 9000;
 
 // create connection to local database
 const db = mysql.createConnection({
