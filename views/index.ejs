@@ -1,0 +1,37 @@
+﻿<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (members.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Member Id</th>
+                        <th scope="col">Member Name</th>
+                        <th scope="col">Member SSN</th>
+                        <th scope="col">Member Details</th>                       
+			<th scope="col">Actions</th>     
+                    </tr>
+                </thead>
+                <tbody>
+                    <% members.forEach((members, index) => { %>
+                        <tr>
+                            <td><%= members.MemberId %></td>
+                            <td><%= members.MemberName %></td>
+                            <td><%= members.MemberSsn %></td>
+                            <td><%= members.MemberDetails %></td>
+                            <td>
+                                <a href="/edit/<%= members.MemberId %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= members.MemberId %>" class="btn btn-sm btn-danger">Delete</a>
+								<a href="/viewcloud/<%= members.MemberId %>" class="btn btn-sm btn-info">View Cloud</a>
+								<a href="/viewpremise/<%= members.MemberId %>" class="btn btn-sm btn-warning">View Premise</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No Members found. Go <a href="/add" >here</a> to add MemberId.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
